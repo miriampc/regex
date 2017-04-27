@@ -1,0 +1,25 @@
+*{
+  margin: 0;
+  padding: 0;
+  font-family: cursive;
+}
+
+body{
+  background: rgba(111, 228, 173, 0.71);
+
+}
+
+.formulario{
+  text-align: center;
+  width: 300px;
+  margin: 0 auto;
+}
+
+.input-box{
+  display: inline-block;
+  margin-top: 20px;
+}
+
+textarea{
+  width: 200px;
+}

@@ -5,8 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Vaidaciones con regex</title>
+  <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
-  
+  <form action="index.html" id="form">
+    <div id="formulario" class="formulario">
+      <h1>Formulario de Validación</h1>
+      <input id="name" type="text" class="input-box" placeholder="Nombres">
+      <span id="name-alert" class="tooltip">s</span>
+      <input id="lastname" type="text" class="input-box" placeholder="Apellidos">
+      <input id="dni" type="number" class="input-box" placeholder="DNI">
+      <input id="date" type="text" class="input-box" placeholder="dd/mm/aaaa">
+      <input id="celnumber" type="number" class="input-box" placeholder="999999999">
+      <input id="phone" type="number" class="input-box" placeholder="123 9999">
+      <input id="password1" type="password" class="input-box" placeholder="password">
+      <input id="password2" type="password" class="input-box" placeholder="paswword">
+      <textarea id="comment" name="name" class="input-box" rows="8" cols="80" placeholder="tu comentario"></textarea>
+      <input id="check" type="checkbox" name="" value="" class="input-box">
+      <label for="">Acepto los <a href="#">términos y condiciones</a></label>
+      <input type="submit" value="Validar">
+    </div>
+  </form>
+  <script type="text/javascript" src="assets/js/app.js"></script>
+  <script type="text/javascript" src="assets/js/windowload.js"></script>
 </body>
 </html>

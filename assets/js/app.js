@@ -15,10 +15,13 @@ inputMsj.forEach(function(e,i){
 var alert=document.getElementsByClassName('alert');
 
 function validateForm(){
-  verifyAge();
+
     var pswd1=document.getElementById('password1');
     var pswd2=document.getElementById('password2');
     var check=document.getElementById('check');
+    if(verifyAge()==false){
+      return false;
+    }
 
     if(pswd1.value!=pswd2.value){
       alert[1].style.display="block";

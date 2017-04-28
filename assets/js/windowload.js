@@ -3,13 +3,15 @@ window.addEventListener('load',function(){
     e.preventDefault();
 
     if(validateForm()){
-      alert("Todos tus datos fueron registrados correctamente");
+      // alert("Todos tus datos fueron registrados correctamente");
+      console.log("ok");
       var inputbox=document.getElementsByClassName("input-box");
       for (var i = 0; i < inputbox.length; i++) {
         inputbox[i].value="";
       }
     }else {
-      alert("Ingrese todos los campos correctamente");
+      console.log("not send");
+      // alert("Ingrese todos los campos correctamente");
     }
   });
 });

@@ -15,33 +15,44 @@ inputMsj.forEach(function(e,i){
 var alert=document.getElementsByClassName('alert');
 
 function validateForm(){
+  verifyAge();
     var pswd1=document.getElementById('password1');
     var pswd2=document.getElementById('password2');
     var check=document.getElementById('check');
 
     if(pswd1.value!=pswd2.value){
-      alert[0].style.display="block";
+      alert[1].style.display="block";
       return false;
     }else {
-      alert[0].style.display="none";
+      alert[1].style.display="none";
       if(!check.checked){
-        alert[1].style.display="block";
+        alert[2].style.display="block";
         return false;
       }
-      alert[1].style.display="none";
+      alert[2].style.display="none";
+
   }
     return true;
 }
 
 function verifyAge(){
-  var today=new Date();
+  var today = new Date();
   var dd = today.getDate();
   var mm = today.getMonth()+1;
   var yyyy = today.getFullYear();
-
   var edad=document.getElementById("date").value;
   var arrFecha=edad.split("-");
-  if(yyyy - parseInt(arrFecha[0]<=18 && arrFecha[1]<mm && arrFecha[2]<dd){
+  if(yyyy - parseInt(arrFecha[0])<18){
     alert[0].style.display="block";
+    return false;
+  }else if(parseInt(arrFecha[1])>mm){
+    alert[0].style.display="block";
+    return false;
+  }else if(parseInt(arrFecha[2])>dd){
+    alert[0].style.display="block";
+    return false;
+  }else{
+    alert[0].style.display="none";
+    return true;
   }
 }

@@ -1,60 +1,33 @@
-var inputs=[{id:"name", clase:"input-box", type:"text", placeholder:"", require:"required"},
-            {id:"name", clase:"input-box", type:"text", placeholder:"", require:"required"},
-            {id:"name", clase:"input-box", type:"text", placeholder:"", require:"required"},
-            {id:"name", clase:"input-box", type:"text", placeholder:"", require:"required"},
-            {id:"name", clase:"input-box", type:"text", placeholder:"", require:"required"},
-            {id:"name", clase:"input-box", type:"text", placeholder:"", require:"required"},
-            {id:"name", clase:"input-box", type:"text", placeholder:"", require:"required"},
-            {id:"name", clase:"input-box", type:"text", placeholder:"", require:"required"}];
+var inputMsj=[
+  {title:"Solo acepta letras, la primera debe ser mayuscula"},
+  {title:"Solo acepta letras, la primera debe ser mayuscula"},
+  {title:"Debe tener 8 digitos"},
+  {title:"Ingrese una fecha correcta"},
+  {title:"Debe iniciar con 9 y tener 9 digitos"},
+  {title:"Debe tener 6 o 7 digitos"},
+  {title:"Debe ser mayor a 6 digitos"}];
 
-inputs.forEach(function(e){
-  var input=document.createElement('input');
-  input.setAttribute("id",e.id)
-  input.setAttribute("class",e.clase);
-  input.setAttribute("type",e.type);
-  input.setAttribute("placeholder",e.placeholder);
-  input.setAttribute("class",e.require);
-  document.getElementById('formulario').appendChild(input);
+var input=document.getElementsByClassName('input-box');
+inputMsj.forEach(function(e,i){
+  input[i].setAttribute("title",e.title);
 });
 
-// function validateForm(funcion){
-//   var inputElements=document.getElementsByClassName('input-box');
-//   for (var i = 0; i < inputElements.length; i++) {
-//     inputElements[i].addEventListener('blur',funcion);
-//   }
-//   return true;
-// }
 function validateForm(){
-  var name=document.getElementById('name');
-  var letters = /^([A-Za-zÑñá-úÁ-Ú ]+)$/;
-  var mayus=/[^a-zá-ú-0-9\s]+([a-zá-ú ]{2,})/;
-  var dni=/[0-9]{8}/;
-  var fecha=/[0-31]+[0-12]+[0-9]{4}/;
+    var pswd1=document.getElementById('password1');
+    var pswd2=document.getElementById('password2');
+    var alert=document.getElementsByClassName('alert');
+    var check=document.getElementById('check');
 
-  if(name.value!="" || name.value.trim().length!=0){
-    if(!name.value.match(letters) || !name.value.match(mayus)){
-         //removeMessage();
-        showMessage("name-alert","Solo se aceptan letras, el primer caracter debe ser mayúscula");
+    if(pswd1.value!=pswd2.value){
+      alert[0].style.display="block";
+      return false;
+    }else {
+      alert[0].style.display="none";
+      if(!check.checked){
+        alert[1].style.display="block";
         return false;
       }
-    }else {
-      // removeMessage();
-      showMessage('name-alert',"Ingrese su nombre");
-      return false;
-    }
+      alert[1].style.display="none";
+  }
     return true;
-}
-
-
-function showMessage(id,message) {
-  var e = document.getElementById(id);
-  e.appendChild(document.createTextNode(""));
-  e.appendChild(document.createTextNode(message));
-}
-
-function removeMessage(){
-   var tool=document.getElementsByClassName('tooltip');
-   for (var i = 0; i < tool.length; i++) {
-     tool[i].style.display="none";
-   }
 }

@@ -12,10 +12,11 @@ inputMsj.forEach(function(e,i){
   input[i].setAttribute("title",e.title);
 });
 
+var alert=document.getElementsByClassName('alert');
+
 function validateForm(){
     var pswd1=document.getElementById('password1');
     var pswd2=document.getElementById('password2');
-    var alert=document.getElementsByClassName('alert');
     var check=document.getElementById('check');
 
     if(pswd1.value!=pswd2.value){
@@ -30,4 +31,17 @@ function validateForm(){
       alert[1].style.display="none";
   }
     return true;
+}
+
+function verifyAge(){
+  var today=new Date();
+  var dd = today.getDate();
+  var mm = today.getMonth()+1;
+  var yyyy = today.getFullYear();
+
+  var edad=document.getElementById("date").value;
+  var arrFecha=edad.split("-");
+  if(yyyy - parseInt(arrFecha[0]<=18 && arrFecha[1]<mm && arrFecha[2]<dd){
+    alert[0].style.display="block";
+  }
 }

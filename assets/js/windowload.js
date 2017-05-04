@@ -11,6 +11,5 @@ window.addEventListener('load',function(){
     }else {
       alert("Ingrese todos los campos correctamente");
     }
-
   });
 });
